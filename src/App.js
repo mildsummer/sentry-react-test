@@ -1,6 +1,12 @@
 import React from 'react';
+import * as Sentry from '@sentry/browser';
 import logo from './logo.svg';
 import './App.css';
+
+console.log(process.env.NODE_ENV === 'development');
+Sentry.init({
+  debug: process.env.NODE_ENV === 'development'
+});
 
 function App() {
   return (
@@ -18,6 +24,11 @@ function App() {
         >
           Learn React
         </a>
+        <button type="button" onClick={() => {
+          throw new Error('error');
+        }}>
+          エラーを発生
+        </button>
       </header>
     </div>
   );
