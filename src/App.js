@@ -9,8 +9,6 @@ Sentry.init({
   dsn: "https://d0d2d3f76b6b401ea5e2bb07b1cfc2e6@sentry.io/1864517"
 });
 
-throw new Error('error');
-
 function App() {
   return (
     <SentryComponent>

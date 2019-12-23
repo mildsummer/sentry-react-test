@@ -12,7 +12,6 @@ class ExampleBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.log('did catch', error);
     Sentry.withScope((scope) => {
       scope.setExtras(errorInfo);
       const eventId = Sentry.captureException(error);
@@ -24,7 +23,7 @@ class ExampleBoundary extends Component {
     if (this.state.hasError) {
       //render fallback UI
       return (
-        <button onClick={() => Sentry.showReportDialog({ eventId: this.state.eventId })}>Report feedback</button>
+        <button onClick={() => Sentry.showReportDialog({ eventId: this.state.eventId })}>エラーを報告する</button>
       );
     }
 
