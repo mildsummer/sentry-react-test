@@ -513,10 +513,7 @@ module.exports = function(webpackEnv) {
     },
     plugins: [
       new SentryWebpackPlugin({
-        include: '.',
-        ignoreFile: '.sentrycliignore',
-        ignore: ['node_modules', 'webpack.config.js'],
-        configFile: '.sentryclirc'
+        include: "build/static/js"
       }),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
