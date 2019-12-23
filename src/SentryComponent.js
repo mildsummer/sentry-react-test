@@ -23,7 +23,18 @@ class ExampleBoundary extends Component {
     if (this.state.hasError) {
       //render fallback UI
       return (
-        <button onClick={() => Sentry.showReportDialog({ eventId: this.state.eventId })}>エラーを報告する</button>
+        <button
+          onClick={() => Sentry.showReportDialog({
+            eventId: this.state.eventId,
+            title: "すみません、問題が発生しました",
+            user: {
+              email: "test@test.com",
+              name: "React 和子"
+            }
+          })}
+        >
+          エラーを報告する
+        </button>
       );
     }
 
